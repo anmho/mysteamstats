@@ -10,6 +10,7 @@ import {
 import { useContext, useState } from "react";
 import UserContext from "../contexts/UserContext";
 import config from "../config.js";
+import { getOwnedGames } from "../services/steamUserService";
 import dummy from "../dummy.json";
 
 export default function LoginCard() {
@@ -26,23 +27,7 @@ export default function LoginCard() {
   */
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const response = {
-      json: () => dummy,
-      ok: true,
-      status: 200,
-    };
-    const responseOk = true;
-    // User not found or error
-    if (!responseOk) {
-      switch (response.status) {
-      }
-      setHelperText("Invalid user");
-      return;
-    }
-    const data = response.json();
-    console.log(data);
-    const ownedGames = data.response.games;
+    const ownedGames = await getOwnedGames(steamId);
     setUser({
       ...user,
       steamId: steamId,
