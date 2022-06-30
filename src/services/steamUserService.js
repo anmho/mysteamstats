@@ -17,6 +17,8 @@ export async function getOwnedGames(steamId) {
       return null;
     });
 
+  console.log(data);
+
   if (data === null) return null;
 
   const ownedGames = data.response.games;

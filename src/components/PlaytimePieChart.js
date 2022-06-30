@@ -9,29 +9,6 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-// const data = [
-//   { name: "Group A", value: 400 },
-//   { name: "Group B", value: 300 },
-//   { name: "Group C", value: 300 },
-//   { name: "Group D", value: 200 },
-// ];
-
-const data = dummy.response.games
-  .map((game) => {
-    return {
-      name: game.name,
-      playtime: game.playtime_forever / 60,
-    };
-  })
-  .sort((a, b) => {
-    if (a.playtime === b.playtime) {
-      return a.name > b.name ? 1 : -1;
-    }
-    return a.playtime - b.playtime;
-  });
-
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
-
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
   cx,
@@ -60,15 +37,12 @@ const renderCustomizedLabel = ({
 };
 
 export default class PlaytimePieChart extends PureComponent {
-  static demoUrl =
-    "https://codesandbox.io/s/pie-chart-with-customized-label-dlhhj";
-
   render() {
     return (
-      <ResponsiveContainer width="100%" height="100%" aspect={3}>
+      <ResponsiveContainer width="100%" height="100%" aspect={1}>
         <PieChart width="100%" height="100%" onMouseEnter={console.log("*")}>
           <Pie
-            data={data}
+            data={this.props.data}
             cx="50%"
             cy="50%"
             labelLine={false}
@@ -77,10 +51,10 @@ export default class PlaytimePieChart extends PureComponent {
             fill="#8884d8"
             dataKey="playtime"
           >
-            {data.map((entry, index) => (
+            {this.props.data.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}
-                fill={COLORS[index % COLORS.length]}
+                fill={this.props.COLORS[index % this.props.COLORS.length]}
               />
             ))}
           </Pie>

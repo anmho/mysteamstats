@@ -11,7 +11,6 @@ import { useContext, useState } from "react";
 import UserContext from "../contexts/UserContext";
 import config from "../config.js";
 import { getOwnedGames } from "../services/steamUserService";
-import dummy from "../dummy.json";
 
 export default function LoginCard() {
   const [steamId, setSteamId] = useState(config.steamId);
@@ -45,7 +44,7 @@ export default function LoginCard() {
           display={"flex"}
         >
           <TextField
-            value={config.steamId}
+            value={steamId}
             onChange={(e) => setSteamId(e.target.value)}
             margin="normal"
             fullWidth
