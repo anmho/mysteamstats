@@ -10,12 +10,14 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { UserProvider } from "./contexts/UserContext";
 
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <UserProvider>
-        <App />
+          <App  />
       </UserProvider>
     </LocalizationProvider>
   </React.StrictMode>
