@@ -25,7 +25,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import { blue, pink } from "@mui/material/colors";
 
 const darkTheme = createTheme({
   palette: {
@@ -68,7 +67,7 @@ const COLORS = [
 ];
 
 function App() {
-  const [steamId, setSteamId] = useState(config.steamId);
+  const [steamId, setSteamId] = useState("76561198184167726");
   const { user, setUser, loggedIn, setLoggedIn } = useContext(UserContext);
   const [totalHours, setTotalHours] = useState(0);
   const [ownedGames, setOwnedGames] = useState([]);
