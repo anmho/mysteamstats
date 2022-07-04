@@ -32,8 +32,6 @@ const darkTheme = createTheme({
     background: {
       default: "#1b2838",
     },
-
-    // secondary: "#171a21",
   },
 });
 
@@ -67,7 +65,6 @@ const COLORS = [
 ];
 
 function App() {
-  const [steamId, setSteamId] = useState("76561198184167726");
   const { user, setUser, loggedIn, setLoggedIn } = useContext(UserContext);
   const [totalHours, setTotalHours] = useState(0);
   const [ownedGames, setOwnedGames] = useState([]);

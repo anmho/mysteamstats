@@ -1,7 +1,7 @@
 const baseUrl = "https://mysteamstatsserver.herokuapp.com/api";
 
 export async function getOwnedGames(steamId) {
-  const url = baseUrl + `/get-owned-games?steam_id=${steamId}`;
+  const url = baseUrl + `/owned-games?steam_id=${steamId}`;
 
   const requestOptions = {
     method: "GET",
@@ -11,7 +11,10 @@ export async function getOwnedGames(steamId) {
   };
 
   const data = await fetch(url, requestOptions)
-    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+      return res.json();
+    })
     .catch((error) => {
       console.log(error);
       return null;
