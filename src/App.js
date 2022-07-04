@@ -5,15 +5,12 @@ import {
   Stack,
   TextField,
   AppBar,
-  Slider,
   Toolbar,
-  Button,
   CssBaseline,
   Card,
   CardContent,
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import config from "./config";
 import LoginCard from "./components/LoginCard";
 import UserContext from "./contexts/UserContext";
 import PlaytimePieChart from "./components/PlaytimePieChart";
@@ -65,7 +62,7 @@ const COLORS = [
 ];
 
 function App() {
-  const { user, setUser, loggedIn, setLoggedIn } = useContext(UserContext);
+  const { user, loggedIn } = useContext(UserContext);
   const [totalHours, setTotalHours] = useState(0);
   const [ownedGames, setOwnedGames] = useState([]);
   const [theme, setTheme] = useState("light");

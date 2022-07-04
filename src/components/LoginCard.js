@@ -1,12 +1,4 @@
-import {
-  FormControl,
-  TextField,
-  Stack,
-  Button,
-  FormHelperText,
-  CardContent,
-  Card,
-} from "@mui/material";
+import { FormControl, TextField, Stack, Button } from "@mui/material";
 import { useContext, useState } from "react";
 import UserContext from "../contexts/UserContext";
 import config from "../config.js";
@@ -14,8 +6,7 @@ import { getOwnedGames } from "../services/steamUserService";
 
 export default function LoginCard() {
   const [steamId, setSteamId] = useState(config.steamId);
-  const { user, setUser, loggedIn, setLoggedIn } = useContext(UserContext);
-  const [helperText, setHelperText] = useState("");
+  const { user, setUser, setLoggedIn } = useContext(UserContext);
   /* 
     Component Purpose:
     1) Set steam Id of user
