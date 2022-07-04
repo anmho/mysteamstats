@@ -73,6 +73,8 @@ function App() {
   const [ownedGames, setOwnedGames] = useState([]);
   const [theme, setTheme] = useState("light");
 
+  console.log(user.steamId);
+
   useEffect(() => {
     if (!user.ownedGames) return;
 
@@ -243,7 +245,14 @@ function App() {
             </Stack>
           )}
         </Stack>
-        <Stack height={100}></Stack>
+        <Stack
+          height={100}
+          alignItems="center"
+          alignContent={"center"}
+          justifyContent={"center"}
+        >
+          <Typography variant="h6">Snap Engineering Academy 2022</Typography>
+        </Stack>
       </ThemeProvider>
     </>
   );
